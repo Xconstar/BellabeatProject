@@ -4,13 +4,13 @@
 ### A Google Data Analytics Professional Certificate Capstone Project
 [Bellabeat](https://bellabeat.com/) was co-founded by Urška Sršen and Sando Mur in 2013. Bellabeat is a high-tech company that creates health-focused smart devices and fitness products. Some of their products include their renowned [Ivy Health Tracker](https://bellabeat.com/product/ivy/) bracelet, [Yoga Mats](https://bellabeat.com/product/yoga-mat/), and their [Leaf Urban](https://bellabeat.com/product/leaf-urban/). You can find a full list of their products on [their website](https://bellabeat.com/)
 
-Bellabeat's co-founders Urška Sršen and Sando Mur want to analyze smart device data to gain insight into how consumers are using their smart devices. Urška believes thatanalyzing smart device fitness data could help unlock new growth opportunities for the company. Bellabeat hopes that these new findings can help guide marketing strategy for the company.
+Bellabeat's co-founders Urška Sršen and Sando Mur want to analyze smart device data to gain insight into how consumers are using their smart devices. Urška believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. Bellabeat hopes that these new findings can help guide marketing strategy for the company.
 
 ## ASK
 
 ### Business Task
 
-Analyze smart device usage data in order to gain insight into how consumers use non-Bellabeat smart devices using those new found insights and one Bellabeat device help guide the marketing strategies at Bellabeat.
+Analyze smart device usage data in order to gain insight into how consumers use non-Bellabeat smart devices using those newfound insights and one Bellabeat device help guide the marketing strategies at Bellabeat.
 
 ### Key Stakeholders
 - **Urška Sršen:** Bellabeat's co-founder and Chief Creative Officer
@@ -25,7 +25,7 @@ The data was sourced from an upload named "FitBit Fitness Tracker Data" on [Kagg
 
 ### Data Factors and Limitations
 
-- **Data Collection:** The way the data was collected has to be taken into consideration the reason being the data was collected through a survery. This can cause the data to be less accurate for the fact that respondents might not given fully honest or accurtate responses.
+- **Data Collection:** The way the data was collected has to be taken into consideration the reason being the data was collected through a survery. This can cause the data to be less accurate for the fact that respondents might not given fully honest or accurate responses.
 - **Sample Size:** Being there are only thirty respondents this sample size would not give us as strong correlations or trends as a larger sample size.
 - **Data Age:** FitBit Fitness Tracker Data was collected 7 years ago and updated 3 years ago. The new FitBit tracker devices may be more accurate and reliable.
 
