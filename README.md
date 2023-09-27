@@ -25,8 +25,12 @@ The data was sourced from an upload named "FitBit Fitness Tracker Data" on [Kagg
 
 ### Data Factors and Limitations
 
-- **Data Collection:** The way the data was collected has to be taken into consideration the reason being the data was collected through a survery. This can cause the data to be less accurate for the fact that respondents might not given fully honest or accurate responses.
+- **Data Collection:** The way the data was collected has to be taken into consideration the reason being the data was collected through a survey. This can cause the data to be less accurate for the fact that respondents might not given fully honest or accurate responses.
 - **Sample Size:** Being there are only thirty respondents this sample size would not give us as strong correlations or trends as a larger sample size.
 - **Data Age:** FitBit Fitness Tracker Data was collected 7 years ago and updated 3 years ago. The new FitBit tracker devices may be more accurate and reliable.
 
 ## PROCESS
+
+### Data Files
+
+For the processing step I've decided to choose three of the data files that were in the dataset. The reason is these three datasets: dailyActivity_merged.csv, sleepDay_merged.csv, and weightLogInfo_merged all provide the majority of the data and have a wide look at the data. Using the other datasets would be redundant and won't help reach the goal that Bellabeat has.
