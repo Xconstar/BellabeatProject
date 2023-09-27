@@ -33,4 +33,4 @@ The data was sourced from an upload named "FitBit Fitness Tracker Data" on [Kagg
 
 ### Data Files
 
-For the processing step I've decided to choose three of the data files that were in the dataset. The reason is these three datasets: ***dailyActivity_merged.csv, sleepDay_merged.csv, and weightLogInfo_merged*** all provide the majority of the data and have a wide look at the data. Using the other datasets would be redundant and won't help reach the goal that Bellabeat has.
+For the processing step I've decided to choose three of the data files that were in the dataset. The reason is these three datasets: **dailyActivity_merged.csv, sleepDay_merged.csv, and weightLogInfo_merged** all provide the majority of the data and have a wide look at the data. Using the other datasets would be redundant and won't help reach the goal that Bellabeat has.
