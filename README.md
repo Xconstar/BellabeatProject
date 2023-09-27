@@ -33,4 +33,78 @@ The data was sourced from an upload named "FitBit Fitness Tracker Data" on [Kagg
 
 ### Data Files
 
-For the processing step I've decided to choose three of the data files that were in the dataset. The reason is these three datasets: **dailyActivity_merged.csv, sleepDay_merged.csv, and weightLogInfo_merged** all provide the majority of the data and have a wide look at the data. Using the other datasets would be redundant and won't help reach the goal that Bellabeat has.
+For the processing step, I've chosen three of the data files that were in the dataset. The reason is these three datasets: `dailyActivity_merged.csv`, `sleepDay_merged.csv`, and `weightLogInfo_merged` all provide the majority of the data and have a broad look at the data.
+
+### Tools
+
+In the process phase, knowing this is a small dataset I used **Excel** to get an overview of the data and to make simple changes like the column data type conversions or fix any spelling mistakes. Next, I will use **SQL** for the necessary cleaning steps and to transform the data. Last, for the data analysis and visualisation I will use **Tableau** and **R Studio**.
+
+### Transformation
+
+**SQL Steps**:
+1. Check for duplicates in each dataset. 
+```
+SELECT
+ActivityDate, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories
+FROM courseracourse4week3-392618.Bellabeat.dailyActivity_data_2
+GROUP BY 
+ActivityDate, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories
+HAVING COUNT(*) > 1;
+```
+```
+SELECT 
+  Id, Date, WeightKg, WeightPounds, BMI, IsManualReport, LogId
+FROM 
+  `courseracourse4week3-392618.Bellabeat.weightLogInfo_data`
+GROUP BY 
+  Id, Date, WeightKg, WeightPounds, BMI, IsManualReport, LogId
+HAVING COUNT(*) > 1;
+
+```
+3. Make sure the "Date" column in each dataset are in the correct data type.
+```
+SELECT
+  FORMAT_DATE('%d-%m-%Y', ActivityDate ) AS formatted_date
+FROM
+`courseracourse4week3-392618.Bellabeat.dailyActivity_data`;
+```
+```
+SELECT
+  FORMAT_DATE('%Y-%m-%d', Date) AS formatted_date
+FROM
+  `courseracourse4week3-392618.Bellabeat.weightLogInfo_data`;
+```
+```
+SELECT
+  FORMAT_DATE('%Y-%m-%d', SleepDay) AS formatted_date
+FROM
+  `courseracourse4week3-392618.Bellabeat.sleepDay_data`;
+```
+4. Change the names of the date columns in each table to "Date"
+5. Left join by Id
+```
+SELECT dailyActivity.Id, ActivityDate, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories, SleepDay, TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed, Date,WeightKg, WeightPounds, BMI, IsManualReport, LogId
+FROM `courseracourse4week3-392618.Bellabeat.dailyActivity_data` as dailyActivity
+LEFT OUTER JOIN `courseracourse4week3-392618.Bellabeat.sleepDay_data` AS test
+ON dailyActivity.Id = test.Id
+AND dailyActivity.activityDate = test.SleepDay
+LEFT OUTER JOIN `courseracourse4week3-392618.Bellabeat.weightLogInfo_data` as weight
+ON test.Id = weight.Id
+and test.SleepDay = weight.Date
+GROUP BY dailyActivity.Id, ActivityDate, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories, SleepDay, TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed, Date,WeightKg, WeightPounds, BMI, IsManualReport, LogId
+```
+6. Left Join by Date
+```
+SELECT Id, TempTable.Date, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories, TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed, WeightKg, WeightPounds, BMI, IsManualReport, LogId
+FROM `courseracourse4week3-392618.Bellabeat.temp_table` as TempTable
+LEFT JOIN `courseracourse4week3-392618.Bellabeat.SleepDay` AS Sleep
+ON TempTable.Date = Sleep.Date
+AND TempTable.Date = Sleep.Date
+LEFT JOIN `courseracourse4week3-392618.Bellabeat.Date_1` as Date1
+ON Sleep.Date = Date1.Date
+and Sleep.Date = Date1.Date
+GROUP BY Id, TempTable.Date, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories, TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed, WeightKg, WeightPounds, BMI, IsManualReport, LogId
+```
+7. Remove duplicates
+
+## ANALYZE
