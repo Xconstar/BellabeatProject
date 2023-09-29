@@ -133,7 +133,7 @@ ggplot(data=Fitness_Data, aes(x=VeryActiveMinutes, y=Calories, color = Calories)
 ![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/08521f80-39de-4daa-834c-30c2661374f4)
 Here we are looking at the Distribution of steps by day and ss we can see here the two most notable decrease in steps are Sunday and Monday.
 ![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/e707745d-58df-4a0c-8d1d-30c487dd06e7)
-This is an interesting chart in my opinion. It is showing a negative correlation betweem sedentary minutes and time asleep. Meaning the more inactive a user is the less sleep they will get.
+This is an interesting chart in my opinion. It is showing a negative correlation between sedentary minutes and time asleep. Meaning the more inactive a user is the less sleep they will get.
 ```
 ggplot(data=Fitness_Data, aes(x=SedentaryMinutes, y=TotalMinutesAsleep)) + geom_point(color = '#0F8E19') + stat_smooth(method = lm) +
   labs(x="Sedentary Minutes", y="Total Minutes Asleep", title = "Sedentary Minutes Vs Time Asleep")
