@@ -108,3 +108,45 @@ GROUP BY Id, TempTable.Date, TotalSteps, TotalDistance, TrackerDistance, LoggedA
 7. Remove duplicates
 
 ## ANALYZE
+
+### Visualization
+![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/1acf0de1-8922-4fbc-ac19-f69121f6dccc)
+In this visualization we can see that when a user takes steps they burn calories. Meaning the more steps taken the more calories burned, clearly.
+```
+ggplot(data=Fitness_Data) + 
+  geom_point(mapping=aes(x=TotalSteps, y=Calories, color=Calories)) +
+  geom_hline(mapping = aes(yintercept=mean_calories), color="blue", lwd=1.0) +
+  geom_vline(mapping = aes(xintercept=mean_steps), color="darkred", lwd=1.0) +
+  geom_text(mapping = aes(x=10000, y=500, label="Average Steps", srt=-90)) +
+  geom_text(mapping = aes(x=29000, y=2500, label="Average Calories")) +
+  labs(x="Steps Taken", y="Calories Burned", title = "Calories burned per step") +
+  scale_color_gradient(low = "darkgreen", high = "lightgreen")
+```
+![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/dc375e8c-4351-4fdc-9ab2-f036bb77ca94)
+Here we see another strong correlation this time between very active minutes and calories. The more activity a user engages in the more calories they will burn.
+```
+ggplot(data=Fitness_Data, aes(x=VeryActiveMinutes, y=Calories, color = Calories)) + geom_point() +
+   geom_smooth(method = "loess",color="blue") + 
+   labs(x="Very Active Minutes",y="calories",title="Very Active Minutes vs Calories") +
+   scale_color_gradient(low = "#144F19", high = "#26D835")
+```
+![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/08521f80-39de-4daa-834c-30c2661374f4)
+Here we are looking at the Distribution of steps by day and ss we can see here the two most notable decrease in steps are Sunday and Monday.
+![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/e707745d-58df-4a0c-8d1d-30c487dd06e7)
+This is an interesting chart in my opinion. It is showing a negative correlation betweem sedentary minutes and time asleep. Meaning the more inactive a user is the less sleep they will get.
+```
+ggplot(data=Fitness_Data, aes(x=SedentaryMinutes, y=TotalMinutesAsleep)) + geom_point(color = '#0F8E19') + stat_smooth(method = lm) +
+  labs(x="Sedentary Minutes", y="Total Minutes Asleep", title = "Sedentary Minutes Vs Time Asleep")
+
+```
+## ACT
+
+- Knowing that the more steps a user takes the more calories a user will burn, we can use this as an oppurtunity to have Bellabeat Fitness Tracker encourage users to have step goals. Where a user can have a goal weight or if a user simply wants to get more active and have the fitness tracker count the steps and how many are left to reach the goal. To motivate the users the fitness tracker can send users notifications letting them know how many steps there are left until they reach their desired goal.
+
+- Piggybacking off the previous recommendation. Since the minutes a user is active also has a strong correlation on how many calories a user burns, Bellabeat can let users add a active minute goal. This can be with heart rate monitoring, users can be reminded on their goals throughout the day. This can also be an alternative if the user would rather be doing something else than walking or running and have their calories burned tracked by active minutes through any activity of their choosing.
+
+- Through my analysis users tend to take less steps on Sunday and Monday. Wether this may be because of work or the anticipation of have to work and would rather relax. What Bellabeat could do is try to encourage users to keep up their streak and goal. This can be through reminder notifications.
+
+- Lastly, knowing that being less active can affect sleep in a negative way, Bellabeat can incorporate ways to show that with their fitness tracker, users may see improvements in their sleep. Bellabeat can also try to implement a default reminder for all users to have less around 800 sedentary minutes.
+
+
