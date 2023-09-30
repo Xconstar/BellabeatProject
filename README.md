@@ -110,7 +110,7 @@ GROUP BY Id, TempTable.Date, TotalSteps, TotalDistance, TrackerDistance, LoggedA
 ## ANALYZE
 
 ### Visualization
-![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/1acf0de1-8922-4fbc-ac19-f69121f6dccc)
+![image](https://github.com/Xconstar/BellabeatProject/blob/main/Calories%20burned%20per%20step.png)
 In this visualization we can see that when a user takes steps they burn calories. Meaning the more steps taken the more calories burned, clearly.
 ```
 ggplot(data=Fitness_Data) + 
@@ -122,7 +122,7 @@ ggplot(data=Fitness_Data) +
   labs(x="Steps Taken", y="Calories Burned", title = "Calories burned per step") +
   scale_color_gradient(low = "darkgreen", high = "lightgreen")
 ```
-![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/dc375e8c-4351-4fdc-9ab2-f036bb77ca94)
+![image](https://github.com/Xconstar/BellabeatProject/blob/main/VActiveMinVsCal.png)
 Here we see another strong correlation this time between very active minutes and calories. The more activity a user engages in the more calories they will burn.
 ```
 ggplot(data=Fitness_Data, aes(x=VeryActiveMinutes, y=Calories, color = Calories)) + geom_point() +
@@ -130,9 +130,9 @@ ggplot(data=Fitness_Data, aes(x=VeryActiveMinutes, y=Calories, color = Calories)
    labs(x="Very Active Minutes",y="calories",title="Very Active Minutes vs Calories") +
    scale_color_gradient(low = "#144F19", high = "#26D835")
 ```
-![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/08521f80-39de-4daa-834c-30c2661374f4)
+![image](https://github.com/Xconstar/BellabeatProject/blob/main/StepsByDay.png)
 Here we are looking at the Distribution of steps by day and ss we can see here the two most notable decrease in steps are Sunday and Monday.
-![image](https://github.com/Xconstar/BellabeatProject/assets/41254450/e707745d-58df-4a0c-8d1d-30c487dd06e7)
+![image](https://github.com/Xconstar/BellabeatProject/blob/main/Sedentary%20Minutes%20Vs%20Time%20Asleep.png)
 This is an interesting chart in my opinion. It is showing a negative correlation between sedentary minutes and time asleep. Meaning the more inactive a user is the less sleep they will get.
 ```
 ggplot(data=Fitness_Data, aes(x=SedentaryMinutes, y=TotalMinutesAsleep)) + geom_point(color = '#0F8E19') + stat_smooth(method = lm) +
