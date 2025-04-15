@@ -134,7 +134,7 @@ ggplot(data=Fitness_Data, aes(x=VeryActiveMinutes, y=Calories, color = Calories)
 ```
 ***Steps By Day***
 ![image](https://github.com/Xconstar/BellabeatProject/blob/main/StepsByDay.png)
-Here we are looking at the Distribution of steps by day and ss we can see here the two most notable decrease in steps are Sunday and Monday.
+Here we are looking at the Distribution of steps by day and as we can see here the two most notable decrease in steps are Sunday and Monday.
 
 ***Sedentary Minutes Vs Time Asleep***
 ![image](https://github.com/Xconstar/BellabeatProject/blob/main/Sedentary%20Minutes%20Vs%20Time%20Asleep.png)
